@@ -1,26 +1,33 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Prim_szam {
     public static void main(String[] args) {
-        int [] szamok = {3, 4, 33, 17,7};
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Prim szamok:");
-        for(int n : szamok){
+        System.out.println("Primszám ellenőrző");
+
+        int szam = sc.nextInt();
+
+        System.out.println("Beírt szám: "+ szam );
+
 
             boolean isPrime = true;
             int oszto = 2;
             //Amíg az osztó kisebb vagy egyenlo a szám osztva 2-vel(pl.: 2 <= 17/2 (8,5), 9 <= 17/2 (9*2 nagyobb mint 17) )
-            while(oszto <= n/2){
+            while(oszto <= szam/2){
                 //ha a szám ban megvan az oszto egeszben akkor nem prim szam
-                if(n % oszto == 0){
+                if(szam % oszto == 0){
                     isPrime = false;
                     break;
                 }
                 oszto++;
             }
+
             if(isPrime){
-                System.out.println(n);
+                System.out.println("A szám prímszám");
+            }else {
+                System.out.println("A szám nem prímszám");
             }
         }
     }
-}
